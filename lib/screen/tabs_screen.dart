@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_meals/models/meal.dart';
 import 'package:flutter_meals/providers/favorites_provider.dart';
 import 'package:flutter_meals/providers/meals_provider.dart';
 import 'package:flutter_meals/resourse/widget/main_drawer.dart';
@@ -27,15 +26,6 @@ class TabsScreen extends ConsumerStatefulWidget {
 class _TabsScreenState extends ConsumerState<TabsScreen> {
   int _selectedPageIndex = 0;
   Map<Filter, bool> _selectedFilters = kInitialFilter;
-
-  void _showInfoBar(String msg) {
-    ScaffoldMessenger.of(context).clearSnackBars();
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(msg),
-      ),
-    );
-  }
 
   void _selectPage(int index) {
     setState(() {
