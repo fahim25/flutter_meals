@@ -15,8 +15,6 @@ const kInitialFilter = {
   Filter.vegan: false,
 };
 
-FiltersNotifier
-
 class TabsScreen extends ConsumerStatefulWidget {
   const TabsScreen({super.key});
 
@@ -42,8 +40,8 @@ class _TabsScreenState extends ConsumerState<TabsScreen> {
       final result = await Navigator.of(context).push<Map<Filter, bool>>(
         MaterialPageRoute(
           builder: (ctx) => FiltersScreen(
-            currentFiltter: _selectedFilters,
-          ),
+              // currentFiltter: _selectedFilters,
+              ),
         ),
       );
 
