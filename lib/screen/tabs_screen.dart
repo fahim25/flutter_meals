@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_meals/providers/favorites_provider.dart';
+import 'package:flutter_meals/providers/filters_provider.dart';
 import 'package:flutter_meals/providers/meals_provider.dart';
 import 'package:flutter_meals/resourse/widget/main_drawer.dart';
 import 'package:flutter_meals/screen/categories_screen.dart';
@@ -13,6 +14,8 @@ const kInitialFilter = {
   Filter.vegetrarian: false,
   Filter.vegan: false,
 };
+
+FiltersNotifier
 
 class TabsScreen extends ConsumerStatefulWidget {
   const TabsScreen({super.key});
