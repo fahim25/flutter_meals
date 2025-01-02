@@ -9,8 +9,6 @@ class FiltersScreen extends ConsumerStatefulWidget {
     super.key,
   });
 
-  final Map<Filter, bool> currentFiltter;
-
   @override
   ConsumerState<FiltersScreen> createState() {
     return _FiltersScreenState();
@@ -53,14 +51,14 @@ class _FiltersScreenState extends ConsumerState<FiltersScreen> {
       ), */
       body: WillPopScope(
         onWillPop: () async {
-          ref.read(filtersProvider.notifier).setFilter(filter, isActive);
-          Navigator.of(context).pop({
+          ref.read(filtersProvider.notifier).setFilters({
             Filter.glutenFree: _glutenFilterSet,
             Filter.lactosFree: _lactoseFilterSet,
             Filter.vegetrarian: _veganFilterSet,
             Filter.vegan: _veganFilterSet,
           });
-          return false;
+          //Navigator.of(context).pop();
+          return true;
           // return true; for save data in data base
         },
         child: Column(
