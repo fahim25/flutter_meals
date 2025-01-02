@@ -5,14 +5,42 @@ import 'package:flutter_meals/models/meal.dart';
 import 'package:flutter_meals/resourse/widget/category_grid_item.dart';
 import 'package:flutter_meals/screen/meal_screen.dart';
 
-class CategoriesScreen extends StatelessWidget {
+class CategoriesScreen extends StatefulWidget {
   const CategoriesScreen({super.key, required this.avilableMeals});
 
   // final void Function(Meal meal) onToggleFavorite;
   final List<Meal> avilableMeals;
 
+  @override
+  State<CategoriesScreen> createState() => _CategoriesScreenState();
+}
+
+class _CategoriesScreenState extends State<CategoriesScreen>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _animationController;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _animationController = AnimationController(
+      vsync: this,
+      duration: Duration(
+        microseconds: 300,
+      ),
+      lowerBound: 0,
+      upperBound: 1,
+    );
+  }
+
+  @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
+  }
+
   void _selectCategory(BuildContext context, Category category) {
-    final filteredMeals = avilableMeals
+    final filteredMeals = widget.avilableMeals
         .where((meal) => meal.categories.contains(category.id))
         .toList();
 
