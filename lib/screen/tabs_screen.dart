@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_meals/providers/favorites_provider.dart';
 import 'package:flutter_meals/providers/filters_provider.dart';
-import 'package:flutter_meals/providers/meals_provider.dart';
 import 'package:flutter_meals/resourse/widget/main_drawer.dart';
 import 'package:flutter_meals/screen/categories_screen.dart';
 import 'package:flutter_meals/screen/filters_screen.dart';
@@ -52,8 +51,8 @@ class _TabsScreenState extends ConsumerState<TabsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    var meals = ref.watch(mealsProvider);
-    var activeFilters = ref.watch(filtersProvider);
+    // var meals = ref.watch(mealsProvider);
+    // var activeFilters = ref.watch(filtersProvider);
     final avilableMeals = ref.watch(filteredMealsProvider);
 
     Widget activePage = CategoriesScreen(
